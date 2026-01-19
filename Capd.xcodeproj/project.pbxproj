@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		10955EAA4085E61CEF06CFA0 /* HelperInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72D866AECF800519DF51B66 /* HelperInstaller.swift */; };
 		120F69612E765C60E1A91CD0 /* capd-helper in Resources */ = {isa = PBXBuildFile; fileRef = 41C178C8DD7C5449E08276E7 /* capd-helper */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		12B906691D672A042C3CBD38 /* com.espenmac.capd.helper.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00112481489289B266C1CF32 /* com.espenmac.capd.helper.plist */; };
 		189614089B017E0917F0F589 /* CapdHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214774008919CBCD2BCFE661 /* CapdHelperProtocol.swift */; };
 		189F7386B3E53DF06CAA0FB3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C853DB8E372E58B1B8E38308 /* Security.framework */; };
 		21CF334EAFED31AA4E005B26 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3364C77CBBF7D0787F8BA2 /* ServiceManagement.framework */; };
@@ -21,6 +20,7 @@
 		66B3439BAD645CCC2C162711 /* MenuBarIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4552374229530F01BED0121 /* MenuBarIconView.swift */; };
 		7275148E71611F54D529B8AA /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3C399FEAEF6A8F446A2A2 /* BatteryMonitor.swift */; };
 		AFB9690A595996195F6EA092 /* CapdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B63EB4842E30EF88E1AE5F /* CapdApp.swift */; };
+		BF8D3F5ABC9BBF4827248967 /* com.example.capd.helper.plist in Resources */ = {isa = PBXBuildFile; fileRef = F97DF7083DA074C6356D9838 /* com.example.capd.helper.plist */; };
 		CD8F569DF3359CF96C770B01 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */; };
 		D48D13CFCF07DE279E1D9B78 /* CapdHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A400C334AD952B604C489 /* CapdHelper.swift */; };
 		F338ED1D31D29939F271B6EF /* CapdConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F05868C70EB08FD526617C /* CapdConstants.swift */; };
@@ -42,12 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00112481489289B266C1CF32 /* com.espenmac.capd.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = com.espenmac.capd.helper.plist; sourceTree = "<group>"; };
 		092B3DA618D81359BF2BD728 /* SMCChargeLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCChargeLimiter.swift; sourceTree = "<group>"; };
 		214774008919CBCD2BCFE661 /* CapdHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdHelperProtocol.swift; sourceTree = "<group>"; };
 		2B4EB2B3CE1FE3BF12313662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3AB269456FABAEA23797EC3F /* HelperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClient.swift; sourceTree = "<group>"; };
-		41C178C8DD7C5449E08276E7 /* capd-helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "capd-helper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41C178C8DD7C5449E08276E7 /* capd-helper */ = {isa = PBXFileReference; includeInIndex = 0; path = "capd-helper"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B63EB4842E30EF88E1AE5F /* CapdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdApp.swift; sourceTree = "<group>"; };
 		6681C4F8F7FEC1DBEBFEA46C /* HelperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperManager.swift; sourceTree = "<group>"; };
 		8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -63,6 +62,7 @@
 		E62FBE6F76666B42EB1CDC33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EC3364C77CBBF7D0787F8BA2 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		EDB3C399FEAEF6A8F446A2A2 /* BatteryMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryMonitor.swift; sourceTree = "<group>"; };
+		F97DF7083DA074C6356D9838 /* com.example.capd.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = com.example.capd.helper.plist; sourceTree = "<group>"; };
 		FAE8B69E194765CFEBC90A43 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +112,7 @@
 		1CF1D97C40A8873F82AFA11B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				00112481489289B266C1CF32 /* com.espenmac.capd.helper.plist */,
+				F97DF7083DA074C6356D9838 /* com.example.capd.helper.plist */,
 				2B4EB2B3CE1FE3BF12313662 /* Info.plist */,
 			);
 			path = Resources;
@@ -250,9 +250,11 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					33C0D98708B5F710C1456446 = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					AD5717798CEE1CB18404B059 = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -267,6 +269,7 @@
 			);
 			mainGroup = 02CFF6DDCAF8D98CBE7CF53B;
 			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -281,7 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12B906691D672A042C3CBD38 /* com.espenmac.capd.helper.plist in Resources */,
+				BF8D3F5ABC9BBF4827248967 /* com.example.capd.helper.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,17 +307,17 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/capd-helper/Resources/com.espenmac.capd.helper.plist",
+				"$(SRCROOT)/capd-helper/Resources/com.example.capd.helper.plist",
 			);
 			name = "Prepare embedded launchd plist";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/com.espenmac.capd.helper.launchd.plist",
+				"$(DERIVED_FILE_DIR)/com.example.capd.helper.launchd.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -euo pipefail\n\nIN_PLIST=\"${SRCROOT}/capd-helper/Resources/com.espenmac.capd.helper.plist\"\nOUT_PLIST=\"${DERIVED_FILE_DIR}/com.espenmac.capd.helper.launchd.plist\"\n\n/usr/bin/plutil -convert binary1 -o \"${OUT_PLIST}\" \"${IN_PLIST}\"\n";
+			shellScript = "set -euo pipefail\n\nIN_PLIST=\"${SRCROOT}/capd-helper/Resources/com.example.capd.helper.plist\"\nOUT_PLIST=\"${DERIVED_FILE_DIR}/com.example.capd.helper.launchd.plist\"\n\n/usr/bin/plutil -convert binary1 -o \"${OUT_PLIST}\" \"${IN_PLIST}\"\n";
 		};
 		54CDC7610E53C5A2E34D2CDC /* Embed Privileged Helper + Launchd Plist */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -329,12 +332,12 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchServices/com.espenmac.capd.helper",
-				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchDaemons/com.espenmac.capd.helper.plist",
+				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchServices/com.example.capd.helper",
+				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchDaemons/com.example.capd.helper.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -euo pipefail\n\nHELPER_LABEL=\"com.espenmac.capd.helper\"\nAPP_BUNDLE=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\nHELPER_SRC=\"${BUILT_PRODUCTS_DIR}/capd-helper\"\nHELPER_DST=\"${APP_BUNDLE}/Contents/Library/LaunchServices/${HELPER_LABEL}\"\n\nLAUNCHD_SRC=\"${SRCROOT}/capd-helper/Resources/${HELPER_LABEL}.plist\"\nLAUNCHD_DST=\"${APP_BUNDLE}/Contents/Library/LaunchDaemons/${HELPER_LABEL}.plist\"\n\nmkdir -p \"$(dirname \"${HELPER_DST}\")\" \"$(dirname \"${LAUNCHD_DST}\")\"\ncp \"${HELPER_SRC}\" \"${HELPER_DST}\"\ncp \"${LAUNCHD_SRC}\" \"${LAUNCHD_DST}\"\nchmod 755 \"${HELPER_DST}\"\n";
+			shellScript = "set -euo pipefail\n\nHELPER_LABEL=\"com.example.capd.helper\"\nAPP_BUNDLE=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\nHELPER_SRC=\"${BUILT_PRODUCTS_DIR}/capd-helper\"\nHELPER_DST=\"${APP_BUNDLE}/Contents/Library/LaunchServices/${HELPER_LABEL}\"\n\nLAUNCHD_SRC=\"${SRCROOT}/capd-helper/Resources/${HELPER_LABEL}.plist\"\nLAUNCHD_DST=\"${APP_BUNDLE}/Contents/Library/LaunchDaemons/${HELPER_LABEL}.plist\"\n\nmkdir -p \"$(dirname \"${HELPER_DST}\")\" \"$(dirname \"${LAUNCHD_DST}\")\"\ncp \"${HELPER_SRC}\" \"${HELPER_DST}\"\ncp \"${LAUNCHD_SRC}\" \"${LAUNCHD_DST}\"\nchmod 755 \"${HELPER_DST}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -385,7 +388,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = "capd-helper/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,9 +401,9 @@
 					"-Xlinker",
 					__launchd_plist,
 					"-Xlinker",
-					"$(DERIVED_FILE_DIR)/com.espenmac.capd.helper.launchd.plist",
+					"$(DERIVED_FILE_DIR)/com.example.capd.helper.launchd.plist",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.espenmac.capd.helper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.capd.helper;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -411,13 +413,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = Capd/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.espenmac.capd;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.capd;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -427,13 +428,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = Capd/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.espenmac.capd;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.capd;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -476,7 +476,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 89793345YY;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -511,7 +511,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = "capd-helper/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -525,9 +524,9 @@
 					"-Xlinker",
 					__launchd_plist,
 					"-Xlinker",
-					"$(DERIVED_FILE_DIR)/com.espenmac.capd.helper.launchd.plist",
+					"$(DERIVED_FILE_DIR)/com.example.capd.helper.launchd.plist",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.espenmac.capd.helper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.capd.helper;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -570,7 +569,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 89793345YY;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

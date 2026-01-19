@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.espenmac.capd.helper</string>
+	<string>com.example.capd.helper</string>
 	<key>MachServices</key>
 	<dict>
-		<key>com.espenmac.capd.helper</key>
+		<key>com.example.capd.helper</key>
 		<true/>
 	</dict>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Library/PrivilegedHelperTools/com.espenmac.capd.helper</string>
+		<string>/Library/PrivilegedHelperTools/com.example.capd.helper</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

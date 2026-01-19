@@ -24,8 +24,8 @@
 	<true/>
 	<key>SMPrivilegedExecutables</key>
 	<dict>
-		<key>com.espenmac.capd.helper</key>
-		<string>identifier "com.espenmac.capd.helper" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"</string>
+		<key>com.example.capd.helper</key>
+		<string>identifier "com.example.capd.helper" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"</string>
 	</dict>
 </dict>
 </plist>

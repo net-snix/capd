@@ -4,7 +4,7 @@ import os.log
 final class CapdHelper: NSObject, CapdHelperProtocol {
   private let logger = Logger(subsystem: CapdConstants.helperLabel, category: "helper")
   private let limiter = ChargeLimiter()
-  private let workQueue = DispatchQueue(label: "com.espenmac.capd.helper.work")
+  private let workQueue = DispatchQueue(label: "com.example.capd.helper.work")
   private var monitorTimer: DispatchSourceTimer?
   private var monitoredLimitPercent: Int?
 

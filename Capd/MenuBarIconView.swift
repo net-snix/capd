@@ -84,7 +84,7 @@ enum MenuBarRingIcon {
         let notch = NSBezierPath()
         notch.move(to: startPoint)
         notch.line(to: endPoint)
-        notch.lineWidth = max(1.2, lineWidth * 0.7)
+        notch.lineWidth = lineWidth
         notch.lineCapStyle = .round
         ringColor.setStroke()
         notch.stroke()

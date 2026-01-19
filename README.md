@@ -8,9 +8,14 @@ Capd is a macOS menu bar app that caps battery charging to a user-set percentage
 - Battery monitor: IOKit Power Sources → status text
 - Privileged helper wiring: SMJobBless + launchd plist + XPC protocol
 - Helper behavior: BCLM-based SMC write; falls back to charging control keys (CH0C or CHTE on Tahoe)
+
 Internal developer notes are intentionally omitted from the public repo.
 
-## Generate + open
+## Requirements
+- Xcode 15+
+- XcodeGen (`brew install xcodegen`)
+
+## Generate + open (required)
 - Generate project: `cd capd && xcodegen generate`
 - Open: `open capd/Capd.xcodeproj`
 
@@ -18,9 +23,9 @@ Internal developer notes are intentionally omitted from the public repo.
 - `cd capd && ./Scripts/build-unsigned.sh`
 
 ## Configure bundle IDs (if you want)
-Current defaults (edit `capd/project.yml` + regenerate):
-- App: `com.espenmac.capd`
-- Helper label/service: `com.espenmac.capd.helper`
+Defaults are placeholders. Edit `capd/project.yml` and regenerate:
+- App: `com.example.capd`
+- Helper label/service: `com.example.capd.helper`
 
 ## SMJobBless notes
 SMJobBless requires proper signing (same team) to actually install the helper. Expect the “Install Helper” button to fail until:
