@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10955EAA4085E61CEF06CFA0 /* HelperInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72D866AECF800519DF51B66 /* HelperInstaller.swift */; };
+		120F69612E765C60E1A91CD0 /* capd-helper in Resources */ = {isa = PBXBuildFile; fileRef = 41C178C8DD7C5449E08276E7 /* capd-helper */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		12B906691D672A042C3CBD38 /* com.espenmac.capd.helper.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00112481489289B266C1CF32 /* com.espenmac.capd.helper.plist */; };
+		189614089B017E0917F0F589 /* CapdHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214774008919CBCD2BCFE661 /* CapdHelperProtocol.swift */; };
+		189F7386B3E53DF06CAA0FB3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C853DB8E372E58B1B8E38308 /* Security.framework */; };
+		21CF334EAFED31AA4E005B26 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3364C77CBBF7D0787F8BA2 /* ServiceManagement.framework */; };
+		2E4E7FD8738F2ACA7B4CA2F9 /* HelperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6681C4F8F7FEC1DBEBFEA46C /* HelperManager.swift */; };
+		334DC51C39882F835290FD29 /* HelperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB269456FABAEA23797EC3F /* HelperClient.swift */; };
+		3BD57651FD595D41641E2B93 /* CapdHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214774008919CBCD2BCFE661 /* CapdHelperProtocol.swift */; };
+		3D030FDF19753C51495B463E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8B69E194765CFEBC90A43 /* main.swift */; };
+		50DC09E5B92D3149F787A9DD /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C3B0DF8F0E7E8CD955793 /* Debouncer.swift */; };
+		66B3439BAD645CCC2C162711 /* MenuBarIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4552374229530F01BED0121 /* MenuBarIconView.swift */; };
+		7275148E71611F54D529B8AA /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3C399FEAEF6A8F446A2A2 /* BatteryMonitor.swift */; };
+		AFB9690A595996195F6EA092 /* CapdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B63EB4842E30EF88E1AE5F /* CapdApp.swift */; };
+		CD8F569DF3359CF96C770B01 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */; };
+		D48D13CFCF07DE279E1D9B78 /* CapdHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A400C334AD952B604C489 /* CapdHelper.swift */; };
+		F338ED1D31D29939F271B6EF /* CapdConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F05868C70EB08FD526617C /* CapdConstants.swift */; };
+		F4BBF86F5C61BEB82178FB2E /* SMCChargeLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B3DA618D81359BF2BD728 /* SMCChargeLimiter.swift */; };
+		F7E470B40B3C65EDB656520D /* HelperXPCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792BD28130A9BE5E1A784A7 /* HelperXPCDelegate.swift */; };
+		FA32B4951A7A400A98688662 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */; };
+		FD278C1B5F128FDB8FCE4551 /* CapdMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98AC991EB7AF5084E0E891 /* CapdMenuView.swift */; };
+		FF8C96D386670C6CAF85F82C /* CapdConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F05868C70EB08FD526617C /* CapdConstants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7533FEC8D6FD313AA861678F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED4102615609D5F0B20C5C03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD5717798CEE1CB18404B059;
+			remoteInfo = "capd-helper";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00112481489289B266C1CF32 /* com.espenmac.capd.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = com.espenmac.capd.helper.plist; sourceTree = "<group>"; };
+		092B3DA618D81359BF2BD728 /* SMCChargeLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCChargeLimiter.swift; sourceTree = "<group>"; };
+		214774008919CBCD2BCFE661 /* CapdHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdHelperProtocol.swift; sourceTree = "<group>"; };
+		2B4EB2B3CE1FE3BF12313662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3AB269456FABAEA23797EC3F /* HelperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClient.swift; sourceTree = "<group>"; };
+		41C178C8DD7C5449E08276E7 /* capd-helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "capd-helper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50B63EB4842E30EF88E1AE5F /* CapdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdApp.swift; sourceTree = "<group>"; };
+		6681C4F8F7FEC1DBEBFEA46C /* HelperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperManager.swift; sourceTree = "<group>"; };
+		8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		9792BD28130A9BE5E1A784A7 /* HelperXPCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperXPCDelegate.swift; sourceTree = "<group>"; };
+		A58A400C334AD952B604C489 /* CapdHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdHelper.swift; sourceTree = "<group>"; };
+		B2762A84B13D2467C92DBE28 /* Capd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4552374229530F01BED0121 /* MenuBarIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIconView.swift; sourceTree = "<group>"; };
+		C02C3B0DF8F0E7E8CD955793 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
+		C3F05868C70EB08FD526617C /* CapdConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdConstants.swift; sourceTree = "<group>"; };
+		C853DB8E372E58B1B8E38308 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CB98AC991EB7AF5084E0E891 /* CapdMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdMenuView.swift; sourceTree = "<group>"; };
+		D72D866AECF800519DF51B66 /* HelperInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperInstaller.swift; sourceTree = "<group>"; };
+		E62FBE6F76666B42EB1CDC33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EC3364C77CBBF7D0787F8BA2 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		EDB3C399FEAEF6A8F446A2A2 /* BatteryMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryMonitor.swift; sourceTree = "<group>"; };
+		FAE8B69E194765CFEBC90A43 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD328C29A7787E35A665A27E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA32B4951A7A400A98688662 /* IOKit.framework in Frameworks */,
+				21CF334EAFED31AA4E005B26 /* ServiceManagement.framework in Frameworks */,
+				189F7386B3E53DF06CAA0FB3 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E50FD570C3059CE3BE11C075 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD8F569DF3359CF96C770B01 /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02CFF6DDCAF8D98CBE7CF53B = {
+			isa = PBXGroup;
+			children = (
+				FDD410C1F8F005F33535E30B /* Capd */,
+				60878EA4F40CC90EA11D32AA /* capd-helper */,
+				CEAF47FB8DAA066B644C39BF /* Shared */,
+				26AD9FFCDB8B6A4708DBD73F /* Frameworks */,
+				9948672076E29775EE52A2E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03A585F16BBC19854ED062C1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3AB269456FABAEA23797EC3F /* HelperClient.swift */,
+				D72D866AECF800519DF51B66 /* HelperInstaller.swift */,
+				6681C4F8F7FEC1DBEBFEA46C /* HelperManager.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1CF1D97C40A8873F82AFA11B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00112481489289B266C1CF32 /* com.espenmac.capd.helper.plist */,
+				2B4EB2B3CE1FE3BF12313662 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		26AD9FFCDB8B6A4708DBD73F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */,
+				C853DB8E372E58B1B8E38308 /* Security.framework */,
+				EC3364C77CBBF7D0787F8BA2 /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60878EA4F40CC90EA11D32AA /* capd-helper */ = {
+			isa = PBXGroup;
+			children = (
+				A58A400C334AD952B604C489 /* CapdHelper.swift */,
+				9792BD28130A9BE5E1A784A7 /* HelperXPCDelegate.swift */,
+				FAE8B69E194765CFEBC90A43 /* main.swift */,
+				092B3DA618D81359BF2BD728 /* SMCChargeLimiter.swift */,
+				1CF1D97C40A8873F82AFA11B /* Resources */,
+			);
+			path = "capd-helper";
+			sourceTree = "<group>";
+		};
+		8FD78135CC47D45A74653C71 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E62FBE6F76666B42EB1CDC33 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9948672076E29775EE52A2E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41C178C8DD7C5449E08276E7 /* capd-helper */,
+				B2762A84B13D2467C92DBE28 /* Capd.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3250868C3D4FC1918DD394B /* Battery */ = {
+			isa = PBXGroup;
+			children = (
+				EDB3C399FEAEF6A8F446A2A2 /* BatteryMonitor.swift */,
+			);
+			path = Battery;
+			sourceTree = "<group>";
+		};
+		BDB16C18A55946DF64522942 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				C02C3B0DF8F0E7E8CD955793 /* Debouncer.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		CEAF47FB8DAA066B644C39BF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C3F05868C70EB08FD526617C /* CapdConstants.swift */,
+				214774008919CBCD2BCFE661 /* CapdHelperProtocol.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		FDD410C1F8F005F33535E30B /* Capd */ = {
+			isa = PBXGroup;
+			children = (
+				50B63EB4842E30EF88E1AE5F /* CapdApp.swift */,
+				CB98AC991EB7AF5084E0E891 /* CapdMenuView.swift */,
+				B4552374229530F01BED0121 /* MenuBarIconView.swift */,
+				B3250868C3D4FC1918DD394B /* Battery */,
+				03A585F16BBC19854ED062C1 /* Helper */,
+				8FD78135CC47D45A74653C71 /* Resources */,
+				BDB16C18A55946DF64522942 /* Util */,
+			);
+			path = Capd;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33C0D98708B5F710C1456446 /* Capd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28E94B09AA8FBA77FBDC066B /* Build configuration list for PBXNativeTarget "Capd" */;
+			buildPhases = (
+				71DDDEBEEB97AEF36E80B61B /* Sources */,
+				F48546D1108BC9318894E02A /* Resources */,
+				DD328C29A7787E35A665A27E /* Frameworks */,
+				54CDC7610E53C5A2E34D2CDC /* Embed Privileged Helper + Launchd Plist */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90995C42B4A8244F4F001CED /* PBXTargetDependency */,
+			);
+			name = Capd;
+			packageProductDependencies = (
+			);
+			productName = Capd;
+			productReference = B2762A84B13D2467C92DBE28 /* Capd.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AD5717798CEE1CB18404B059 /* capd-helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E4813766B26E431288A6F31 /* Build configuration list for PBXNativeTarget "capd-helper" */;
+			buildPhases = (
+				54328918A6DA81E542BE1A67 /* Prepare embedded launchd plist */,
+				EB632BEB6D99F020B7CA8457 /* Sources */,
+				565D971D7642F924029FCF1F /* Resources */,
+				E50FD570C3059CE3BE11C075 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "capd-helper";
+			packageProductDependencies = (
+			);
+			productName = "capd-helper";
+			productReference = 41C178C8DD7C5449E08276E7 /* capd-helper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED4102615609D5F0B20C5C03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					33C0D98708B5F710C1456446 = {
+						ProvisioningStyle = Automatic;
+					};
+					AD5717798CEE1CB18404B059 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6043FE8B62381E80F453A8CB /* Build configuration list for PBXProject "Capd" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 02CFF6DDCAF8D98CBE7CF53B;
+			minimizedProjectReferenceProxies = 1;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33C0D98708B5F710C1456446 /* Capd */,
+				AD5717798CEE1CB18404B059 /* capd-helper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		565D971D7642F924029FCF1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12B906691D672A042C3CBD38 /* com.espenmac.capd.helper.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F48546D1108BC9318894E02A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				120F69612E765C60E1A91CD0 /* capd-helper in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54328918A6DA81E542BE1A67 /* Prepare embedded launchd plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/capd-helper/Resources/com.espenmac.capd.helper.plist",
+			);
+			name = "Prepare embedded launchd plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/com.espenmac.capd.helper.launchd.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -euo pipefail\n\nIN_PLIST=\"${SRCROOT}/capd-helper/Resources/com.espenmac.capd.helper.plist\"\nOUT_PLIST=\"${DERIVED_FILE_DIR}/com.espenmac.capd.helper.launchd.plist\"\n\n/usr/bin/plutil -convert binary1 -o \"${OUT_PLIST}\" \"${IN_PLIST}\"\n";
+		};
+		54CDC7610E53C5A2E34D2CDC /* Embed Privileged Helper + Launchd Plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Privileged Helper + Launchd Plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchServices/com.espenmac.capd.helper",
+				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchDaemons/com.espenmac.capd.helper.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -euo pipefail\n\nHELPER_LABEL=\"com.espenmac.capd.helper\"\nAPP_BUNDLE=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\nHELPER_SRC=\"${BUILT_PRODUCTS_DIR}/capd-helper\"\nHELPER_DST=\"${APP_BUNDLE}/Contents/Library/LaunchServices/${HELPER_LABEL}\"\n\nLAUNCHD_SRC=\"${SRCROOT}/capd-helper/Resources/${HELPER_LABEL}.plist\"\nLAUNCHD_DST=\"${APP_BUNDLE}/Contents/Library/LaunchDaemons/${HELPER_LABEL}.plist\"\n\nmkdir -p \"$(dirname \"${HELPER_DST}\")\" \"$(dirname \"${LAUNCHD_DST}\")\"\ncp \"${HELPER_SRC}\" \"${HELPER_DST}\"\ncp \"${LAUNCHD_SRC}\" \"${LAUNCHD_DST}\"\nchmod 755 \"${HELPER_DST}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71DDDEBEEB97AEF36E80B61B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7275148E71611F54D529B8AA /* BatteryMonitor.swift in Sources */,
+				AFB9690A595996195F6EA092 /* CapdApp.swift in Sources */,
+				FF8C96D386670C6CAF85F82C /* CapdConstants.swift in Sources */,
+				3BD57651FD595D41641E2B93 /* CapdHelperProtocol.swift in Sources */,
+				FD278C1B5F128FDB8FCE4551 /* CapdMenuView.swift in Sources */,
+				50DC09E5B92D3149F787A9DD /* Debouncer.swift in Sources */,
+				334DC51C39882F835290FD29 /* HelperClient.swift in Sources */,
+				10955EAA4085E61CEF06CFA0 /* HelperInstaller.swift in Sources */,
+				2E4E7FD8738F2ACA7B4CA2F9 /* HelperManager.swift in Sources */,
+				66B3439BAD645CCC2C162711 /* MenuBarIconView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB632BEB6D99F020B7CA8457 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F338ED1D31D29939F271B6EF /* CapdConstants.swift in Sources */,
+				D48D13CFCF07DE279E1D9B78 /* CapdHelper.swift in Sources */,
+				189614089B017E0917F0F589 /* CapdHelperProtocol.swift in Sources */,
+				F7E470B40B3C65EDB656520D /* HelperXPCDelegate.swift in Sources */,
+				F4BBF86F5C61BEB82178FB2E /* SMCChargeLimiter.swift in Sources */,
+				3D030FDF19753C51495B463E /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		90995C42B4A8244F4F001CED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD5717798CEE1CB18404B059 /* capd-helper */;
+			targetProxy = 7533FEC8D6FD313AA861678F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11DE49D1801180342C98D829 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEVELOPMENT_TEAM = TBMZBFNUT5;
+				INFOPLIST_FILE = "capd-helper/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-sectcreate",
+					"-Xlinker",
+					__TEXT,
+					"-Xlinker",
+					__launchd_plist,
+					"-Xlinker",
+					"$(DERIVED_FILE_DIR)/com.espenmac.capd.helper.launchd.plist",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.espenmac.capd.helper;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2F217DA97DEF2D14FF2CC947 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TBMZBFNUT5;
+				INFOPLIST_FILE = Capd/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.espenmac.capd;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		82351599CEA7E0408CEFB5F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TBMZBFNUT5;
+				INFOPLIST_FILE = Capd/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.espenmac.capd;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BFEC731C92DCF073B7E36CA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 89793345YY;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CA20601AE71B0D6FFDCF749F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEVELOPMENT_TEAM = TBMZBFNUT5;
+				INFOPLIST_FILE = "capd-helper/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-sectcreate",
+					"-Xlinker",
+					__TEXT,
+					"-Xlinker",
+					__launchd_plist,
+					"-Xlinker",
+					"$(DERIVED_FILE_DIR)/com.espenmac.capd.helper.launchd.plist",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.espenmac.capd.helper;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E2BA79E614D4FCDE5DA5339D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 89793345YY;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28E94B09AA8FBA77FBDC066B /* Build configuration list for PBXNativeTarget "Capd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82351599CEA7E0408CEFB5F0 /* Debug */,
+				2F217DA97DEF2D14FF2CC947 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6043FE8B62381E80F453A8CB /* Build configuration list for PBXProject "Capd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFEC731C92DCF073B7E36CA3 /* Debug */,
+				E2BA79E614D4FCDE5DA5339D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8E4813766B26E431288A6F31 /* Build configuration list for PBXNativeTarget "capd-helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA20601AE71B0D6FFDCF749F /* Debug */,
+				11DE49D1801180342C98D829 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED4102615609D5F0B20C5C03 /* Project object */;
+}

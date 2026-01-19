@@ -1,0 +1,103 @@
+name: Capd
+
+options:
+  bundleIdPrefix: com.espenmac
+  deploymentTarget:
+    macOS: "13.0"
+
+settings:
+  base:
+    MARKETING_VERSION: "0.1"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: 89793345YY
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "Apple Development"
+
+targets:
+  Capd:
+    type: application
+    platform: macOS
+    sources:
+      - path: Capd
+      - path: Shared
+    info:
+      path: Capd/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: Capd
+        LSUIElement: true
+        SMPrivilegedExecutables:
+          com.espenmac.capd.helper: 'identifier "com.espenmac.capd.helper" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"'
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.espenmac.capd
+        INFOPLIST_FILE: Capd/Resources/Info.plist
+    dependencies:
+      - target: capd-helper
+      - sdk: IOKit.framework
+      - sdk: ServiceManagement.framework
+      - sdk: Security.framework
+    postBuildScripts:
+      - name: Embed Privileged Helper + Launchd Plist
+        script: |
+          set -euo pipefail
+
+          HELPER_LABEL="com.espenmac.capd.helper"
+          APP_BUNDLE="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
+
+          HELPER_SRC="${BUILT_PRODUCTS_DIR}/capd-helper"
+          HELPER_DST="${APP_BUNDLE}/Contents/Library/LaunchServices/${HELPER_LABEL}"
+
+          LAUNCHD_SRC="${SRCROOT}/capd-helper/Resources/${HELPER_LABEL}.plist"
+          LAUNCHD_DST="${APP_BUNDLE}/Contents/Library/LaunchDaemons/${HELPER_LABEL}.plist"
+
+          mkdir -p "$(dirname "${HELPER_DST}")" "$(dirname "${LAUNCHD_DST}")"
+          cp "${HELPER_SRC}" "${HELPER_DST}"
+          cp "${LAUNCHD_SRC}" "${LAUNCHD_DST}"
+          chmod 755 "${HELPER_DST}"
+        shell: /bin/bash
+        outputFiles:
+          - $(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchServices/com.espenmac.capd.helper
+          - $(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchDaemons/com.espenmac.capd.helper.plist
+
+  capd-helper:
+    type: tool
+    platform: macOS
+    sources:
+      - path: capd-helper
+      - path: Shared
+    dependencies:
+      - sdk: IOKit.framework
+    info:
+      path: capd-helper/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: capd-helper
+        SMAuthorizedClients:
+          - 'identifier "com.espenmac.capd" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"'
+    preBuildScripts:
+      - name: Prepare embedded launchd plist
+        script: |
+          set -euo pipefail
+
+          IN_PLIST="${SRCROOT}/capd-helper/Resources/com.espenmac.capd.helper.plist"
+          OUT_PLIST="${DERIVED_FILE_DIR}/com.espenmac.capd.helper.launchd.plist"
+
+          /usr/bin/plutil -convert binary1 -o "${OUT_PLIST}" "${IN_PLIST}"
+        shell: /bin/bash
+        inputFiles:
+          - $(SRCROOT)/capd-helper/Resources/com.espenmac.capd.helper.plist
+        outputFiles:
+          - $(DERIVED_FILE_DIR)/com.espenmac.capd.helper.launchd.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.espenmac.capd.helper
+        INFOPLIST_FILE: capd-helper/Resources/Info.plist
+        CREATE_INFOPLIST_SECTION_IN_BINARY: YES
+        OTHER_LDFLAGS:
+          - -Xlinker
+          - -sectcreate
+          - -Xlinker
+          - __TEXT
+          - -Xlinker
+          - __launchd_plist
+          - -Xlinker
+          - $(DERIVED_FILE_DIR)/com.espenmac.capd.helper.launchd.plist
