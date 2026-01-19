@@ -1,6 +1,6 @@
 # Capd
 
-Capd is a macOS menu bar app that caps battery charging to a user-set percentage (e.g. 80%) when plugged into external power.
+Capd is a lightweight macOS menu bar app that limits battery charging to a chosen percentage to reduce long‑term battery wear.
 
 ## What’s scaffolded
 - XcodeGen project: `capd/project.yml` (generates `capd/Capd.xcodeproj`)
