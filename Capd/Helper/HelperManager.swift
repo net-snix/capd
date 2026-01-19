@@ -73,7 +73,7 @@ final class HelperManager: ObservableObject {
         Task { @MainActor in
           switch result {
           case .success:
-            self.statusText = "Cleared (100%)"
+            self.statusText = "Helper reachable"
           case .failure(let error):
             self.statusText = error.localizedDescription
           }
@@ -84,7 +84,7 @@ final class HelperManager: ObservableObject {
         Task { @MainActor in
           switch result {
           case .success:
-            self.statusText = "Applied (\(limitPercent)%)"
+            self.statusText = "Helper reachable"
           case .failure(let error):
             self.statusText = error.localizedDescription
           }

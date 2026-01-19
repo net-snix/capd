@@ -35,8 +35,7 @@ struct CapdMenuView: View {
   private var powerSourceText: String? {
     guard limitPercent < CapdConstants.maxChargeLimitPercent else { return nil }
     let snapshot = batteryMonitor.snapshot
-    guard snapshot.isPluggedIn, !snapshot.isCharging, snapshot.percentage >= limitPercent else { return nil }
-    return "Power Source: Power Adapter"
+    return snapshot.isPluggedIn ? "Power Source: Power Adapter" : "Power Source: Battery"
   }
 
   var body: some View {
@@ -83,7 +82,8 @@ struct CapdMenuView: View {
         }
       }
 
-      Toggle("Launch at login", isOn: launchAtLoginBinding)
+      Toggle("Launch at Login", isOn: launchAtLoginBinding)
+        .toggleStyle(.switch)
     }
     .padding(12)
     .frame(width: 280)
