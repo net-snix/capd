@@ -36,7 +36,7 @@ struct CapdMenuView: View {
     guard limitPercent < CapdConstants.maxChargeLimitPercent else { return nil }
     let snapshot = batteryMonitor.snapshot
     guard snapshot.isPluggedIn, !snapshot.isCharging, snapshot.percentage >= limitPercent else { return nil }
-    return "Power Source: Power Cable"
+    return "Power Source: Power Adapter"
   }
 
   var body: some View {
