@@ -6,6 +6,7 @@ public enum CapdConstants {
   public static let machServiceName = "com.example.capd.helper"
 
   public static let defaultsChargeLimitKey = "chargeLimitPercent"
+  public static let defaultsColoredIconKey = "coloredMenuBarIcon"
   public static let defaultChargeLimitPercent = 80
 
   public static let minChargeLimitPercent = 30

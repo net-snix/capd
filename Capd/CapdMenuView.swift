@@ -1,4 +1,4 @@
-import ServiceManagement
+import AppKit
 import SwiftUI
 
 struct CapdMenuView: View {
@@ -8,28 +8,13 @@ struct CapdMenuView: View {
   @AppStorage(CapdConstants.defaultsChargeLimitKey)
   private var limitPercent: Int = CapdConstants.defaultChargeLimitPercent
 
-  @State private var launchAtLoginEnabled: Bool = false
-  @State private var launchAtLoginError: String?
+  @State private var showSettings: Bool = false
 
   private var limitBindingForSlider: Binding<Double> {
     Binding(
       get: { Double(limitPercent) },
       set: { limitPercent = Int($0.rounded()) }
     )
-  }
-
-  private var launchAtLoginBinding: Binding<Bool> {
-    Binding(
-      get: { launchAtLoginEnabled },
-      set: { newValue in
-        launchAtLoginEnabled = newValue
-        setLaunchAtLogin(newValue)
-      }
-    )
-  }
-
-  private var helperButtonTitle: String {
-    helperManager.isHelperReachable ? "Reinstall Helper" : "Install Helper"
   }
 
   private var powerSourceText: String? {
@@ -40,7 +25,21 @@ struct CapdMenuView: View {
 
   var body: some View {
     VStack(alignment: .leading, spacing: 12) {
-      Text("Capd").font(.headline)
+      HStack {
+        Text("Capd").font(.headline)
+        Spacer()
+        Menu {
+          Button("Settings") {
+            showSettings = true
+          }
+          Divider()
+          Button("Quit Capd") {
+            NSApplication.shared.terminate(nil)
+          }
+        } label: {
+          Image(systemName: "line.3.horizontal")
+        }
+      }
 
       HStack(spacing: 8) {
         Text("Limit")
@@ -66,31 +65,18 @@ struct CapdMenuView: View {
             .font(.caption)
             .foregroundStyle(.secondary)
         }
-        if let launchAtLoginError {
-          Text(launchAtLoginError)
+        if !helperManager.isHelperReachable {
+          Text("Helper not installed")
             .font(.caption)
             .foregroundStyle(.secondary)
         }
-        Text(helperManager.statusText)
-          .font(.caption)
-          .foregroundStyle(.secondary)
       }
-
-      HStack {
-        Button(helperButtonTitle) {
-          helperManager.installHelper()
-        }
-      }
-
-      Toggle("Launch at Login", isOn: launchAtLoginBinding)
-        .toggleStyle(.switch)
     }
     .padding(12)
     .frame(width: 280)
     .onAppear {
       limitPercent = CapdConstants.clampLimit(limitPercent)
       helperManager.requestApply(limitPercent: limitPercent)
-      syncLaunchAtLoginState()
     }
     .onChange(of: limitPercent) { newValue in
       let clamped = CapdConstants.clampLimit(newValue)
@@ -104,24 +90,9 @@ struct CapdMenuView: View {
       guard limitPercent < CapdConstants.maxChargeLimitPercent else { return }
       helperManager.requestApply(limitPercent: limitPercent)
     }
-  }
-
-  private func syncLaunchAtLoginState() {
-    launchAtLoginEnabled = (SMAppService.mainApp.status == .enabled)
-  }
-
-  private func setLaunchAtLogin(_ enabled: Bool) {
-    do {
-      if enabled {
-        try SMAppService.mainApp.register()
-      } else {
-        try SMAppService.mainApp.unregister()
-      }
-      launchAtLoginError = nil
-      syncLaunchAtLoginState()
-    } catch {
-      launchAtLoginError = "Launch at login failed: \(error.localizedDescription)"
-      syncLaunchAtLoginState()
+    .sheet(isPresented: $showSettings) {
+      CapdSettingsView()
+        .environmentObject(helperManager)
     }
   }
 }

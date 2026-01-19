@@ -15,9 +15,8 @@ final class BatteryMonitor: ObservableObject {
   private var runLoopSource: CFRunLoopSource?
 
   var statusText: String {
-    let pluggedText = snapshot.isPluggedIn ? "Plugged In" : "On Battery"
     let chargingText = snapshot.isCharging ? "Charging" : "Not Charging"
-    return "Battery \(snapshot.percentage)% • \(pluggedText) • \(chargingText)"
+    return "Battery \(snapshot.percentage)% • \(chargingText)"
   }
 
   var menuBarSymbolName: String {

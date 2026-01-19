@@ -8,10 +8,17 @@ struct MenuBarRingIconView: View {
   @AppStorage(CapdConstants.defaultsChargeLimitKey)
   private var limitPercent: Int = CapdConstants.defaultChargeLimitPercent
 
+  @AppStorage(CapdConstants.defaultsColoredIconKey)
+  private var coloredIconEnabled: Bool = false
+
   var body: some View {
     let percent = batteryMonitor.snapshot.percentage
     let limit = CapdConstants.clampLimit(limitPercent)
-    let image = MenuBarRingIcon.image(currentPercent: percent, limitPercent: limit)
+    let image = MenuBarRingIcon.image(
+      currentPercent: percent,
+      limitPercent: limit,
+      colored: coloredIconEnabled
+    )
     Image(nsImage: image)
       .renderingMode(.original)
       .frame(width: 18, height: 18)
@@ -20,11 +27,15 @@ struct MenuBarRingIconView: View {
 }
 
 enum MenuBarRingIcon {
-  static func image(currentPercent: Int, limitPercent: Int) -> NSImage {
+  static func image(currentPercent: Int, limitPercent: Int, colored: Bool) -> NSImage {
     let size = NSSize(width: 18, height: 18)
     let lineWidth: CGFloat = 2.2
-    let ringColor = NSColor.white
-    let trackColor = NSColor.white.withAlphaComponent(0.25)
+    let ringColor = colored
+      ? NSColor(srgbRed: 0.20, green: 0.86, blue: 0.50, alpha: 1.0)
+      : NSColor.white
+    let trackColor = colored
+      ? NSColor(srgbRed: 0.20, green: 0.86, blue: 0.50, alpha: 0.35)
+      : NSColor.white.withAlphaComponent(0.25)
 
     return NSImage(size: size, flipped: false) { rect in
       let radius = min(rect.width, rect.height) / 2 - lineWidth / 2
