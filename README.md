@@ -1,10 +1,6 @@
 # Capd
 
-Capd is a macOS menu bar app concept that caps battery charging to a user-set percentage (e.g. 80%) when plugged into external power.
-
-- Spec: `capd/IMPLEMENTATION_SPEC.md`
-- App name: `Capd`
-- Folder: `capd/`
+Capd is a macOS menu bar app that caps battery charging to a user-set percentage (e.g. 80%) when plugged into external power.
 
 ## What’s scaffolded
 - XcodeGen project: `capd/project.yml` (generates `capd/Capd.xcodeproj`)
@@ -12,7 +8,7 @@ Capd is a macOS menu bar app concept that caps battery charging to a user-set pe
 - Battery monitor: IOKit Power Sources → status text
 - Privileged helper wiring: SMJobBless + launchd plist + XPC protocol
 - Helper behavior: BCLM-based SMC write; falls back to charging control keys (CH0C or CHTE on Tahoe)
-- Dev notes: `capd/DEVELOPMENT.md`
+Internal developer notes are intentionally omitted from the public repo.
 
 ## Generate + open
 - Generate project: `cd capd && xcodegen generate`

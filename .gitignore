@@ -28,3 +28,6 @@ build/
 *.mode1v3
 *.mode2v3
 *.perspectivev3
+
+DEVELOPMENT.md
+IMPLEMENTATION_SPEC.md
