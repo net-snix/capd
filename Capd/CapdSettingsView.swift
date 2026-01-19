@@ -30,13 +30,18 @@ struct CapdSettingsView: View {
 
       Toggle("Launch at Login", isOn: launchAtLoginBinding)
         .toggleStyle(.switch)
+        .tint(.accentColor)
+        .frame(maxWidth: .infinity, alignment: .leading)
 
       Toggle("Colored menu bar icon", isOn: $coloredMenuBarIcon)
         .toggleStyle(.switch)
+        .tint(.accentColor)
+        .frame(maxWidth: .infinity, alignment: .leading)
 
       Button(helperButtonTitle) {
         helperManager.installHelper()
       }
+      .buttonStyle(.borderedProminent)
 
       if let launchAtLoginError {
         Text(launchAtLoginError)
@@ -52,6 +57,7 @@ struct CapdSettingsView: View {
     }
     .padding(12)
     .frame(width: 280)
+    .tint(.accentColor)
     .onAppear {
       syncLaunchAtLoginState()
     }

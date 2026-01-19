@@ -8,8 +8,6 @@ struct CapdMenuView: View {
   @AppStorage(CapdConstants.defaultsChargeLimitKey)
   private var limitPercent: Int = CapdConstants.defaultChargeLimitPercent
 
-  @State private var showSettings: Bool = false
-
   private var limitBindingForSlider: Binding<Double> {
     Binding(
       get: { Double(limitPercent) },
@@ -30,7 +28,7 @@ struct CapdMenuView: View {
         Spacer()
         Menu {
           Button("Settings") {
-            showSettings = true
+            SettingsWindowController.show(helperManager: helperManager)
           }
           Divider()
           Button("Quit Capd") {
@@ -89,10 +87,6 @@ struct CapdMenuView: View {
     .onChange(of: batteryMonitor.snapshot) { _ in
       guard limitPercent < CapdConstants.maxChargeLimitPercent else { return }
       helperManager.requestApply(limitPercent: limitPercent)
-    }
-    .sheet(isPresented: $showSettings) {
-      CapdSettingsView()
-        .environmentObject(helperManager)
     }
   }
 }
