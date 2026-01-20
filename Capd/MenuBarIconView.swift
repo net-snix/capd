@@ -75,6 +75,7 @@ enum MenuBarRingIcon {
       }
 
       let clampedLimit = max(CapdConstants.minChargeLimitPercent, min(limitPercent, 100))
+      let limitReached = clampedPercent >= clampedLimit
       if clampedLimit < 100 {
         let limitAngle = (startAngle - (360 * CGFloat(clampedLimit) / 100)) * (.pi / 180)
         let direction = CGPoint(
@@ -97,7 +98,7 @@ enum MenuBarRingIcon {
         notch.line(to: endPoint)
         notch.lineWidth = lineWidth
         notch.lineCapStyle = .round
-        ringColor.setStroke()
+        (limitReached ? ringColor : trackColor).setStroke()
         notch.stroke()
       }
 
