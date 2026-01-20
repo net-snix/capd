@@ -1,5 +1,9 @@
 # Capd
 
+<p align="center">
+  <img src="Capd/Resources/icon.png" alt="Capd app icon" width="128">
+</p>
+
 Capd is a lightweight macOS menu bar app that limits battery charging to a chosen percentage to reduce long‑term battery wear.
 
 ## What’s scaffolded

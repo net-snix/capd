@@ -31,6 +31,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.capd
         INFOPLIST_FILE: Capd/Resources/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     dependencies:
       - target: capd-helper
       - sdk: IOKit.framework

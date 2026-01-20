@@ -21,6 +21,7 @@
 		66B3439BAD645CCC2C162711 /* MenuBarIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4552374229530F01BED0121 /* MenuBarIconView.swift */; };
 		7275148E71611F54D529B8AA /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3C399FEAEF6A8F446A2A2 /* BatteryMonitor.swift */; };
 		727C50634250436EA96DEEFD /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4C95FED8DAA21F7A2BB19 /* SettingsWindowController.swift */; };
+		A09C29542F1FFCB500936CB1 /* capd.icon in Resources */ = {isa = PBXBuildFile; fileRef = A09C29532F1FFCB500936CB1 /* capd.icon */; };
 		AFB9690A595996195F6EA092 /* CapdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B63EB4842E30EF88E1AE5F /* CapdApp.swift */; };
 		BF8D3F5ABC9BBF4827248967 /* com.example.capd.helper.plist in Resources */ = {isa = PBXBuildFile; fileRef = F97DF7083DA074C6356D9838 /* com.example.capd.helper.plist */; };
 		CD8F569DF3359CF96C770B01 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */; };
@@ -54,6 +55,7 @@
 		8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		8EE4C95FED8DAA21F7A2BB19 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		9792BD28130A9BE5E1A784A7 /* HelperXPCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperXPCDelegate.swift; sourceTree = "<group>"; };
+		A09C29532F1FFCB500936CB1 /* capd.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = capd.icon; sourceTree = "<group>"; };
 		A58A400C334AD952B604C489 /* CapdHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdHelper.swift; sourceTree = "<group>"; };
 		A63C41C31894099278D10FD0 /* CapdSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdSettingsView.swift; sourceTree = "<group>"; };
 		B2762A84B13D2467C92DBE28 /* Capd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capd.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				E62FBE6F76666B42EB1CDC33 /* Info.plist */,
+				A09C29532F1FFCB500936CB1 /* capd.icon */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09C29542F1FFCB500936CB1 /* capd.icon in Resources */,
 				120F69612E765C60E1A91CD0 /* capd-helper in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,8 +421,10 @@
 		2F217DA97DEF2D14FF2CC947 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = capd;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = Capd/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -433,8 +439,10 @@
 		82351599CEA7E0408CEFB5F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = capd;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = Capd/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
