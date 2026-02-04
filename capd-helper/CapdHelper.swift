@@ -1,12 +1,13 @@
 import Foundation
+import IOKit.ps
 import os.log
 
 final class CapdHelper: NSObject, CapdHelperProtocol {
   private let logger = Logger(subsystem: CapdConstants.helperLabel, category: "helper")
   private let limiter = ChargeLimiter()
   private let workQueue = DispatchQueue(label: "com.example.capd.helper.work")
-  private var monitorTimer: DispatchSourceTimer?
   private var monitoredLimitPercent: Int?
+  private var powerSourceRunLoopSource: CFRunLoopSource?
 
   func ping(withReply reply: @escaping (String) -> Void) {
     reply("pong")
@@ -18,8 +19,13 @@ final class CapdHelper: NSObject, CapdHelperProtocol {
     workQueue.async { [weak self] in
       guard let self else { return }
       do {
-        try self.limiter.setLimit(clamped)
-        self.startMonitoring(limitPercent: clamped)
+        let mode = try self.limiter.setLimit(clamped)
+        switch mode {
+        case .bclm:
+          self.stopMonitoring()
+        case .chargingControl:
+          self.startMonitoring(limitPercent: clamped)
+        }
         reply(nil)
       } catch let error as ChargeLimiterError {
         self.logger.error("setChargeLimit failed: \(error.localizedDescription, privacy: .public)")
@@ -54,31 +60,58 @@ final class CapdHelper: NSObject, CapdHelperProtocol {
   private func startMonitoring(limitPercent: Int) {
     monitoredLimitPercent = limitPercent
 
-    if monitorTimer == nil {
-      let timer = DispatchSource.makeTimerSource(queue: workQueue)
-      timer.schedule(deadline: .now() + .seconds(30), repeating: .seconds(30), leeway: .seconds(5))
-      timer.setEventHandler { [weak self] in
-        self?.monitorTick()
-      }
-      timer.resume()
-      monitorTimer = timer
-    }
-
-    monitorTick()
+    startPowerSourceMonitoring()
   }
 
   private func stopMonitoring() {
     monitoredLimitPercent = nil
-    monitorTimer?.cancel()
-    monitorTimer = nil
+    stopPowerSourceMonitoring()
   }
 
   private func monitorTick() {
     guard let limit = monitoredLimitPercent else { return }
     do {
-      try limiter.setLimit(limit)
+      let mode = try limiter.setLimit(limit)
+      if mode == .bclm {
+        stopMonitoring()
+      }
     } catch {
       logger.error("monitor tick failed: \(error.localizedDescription, privacy: .public)")
+    }
+  }
+
+  private func startPowerSourceMonitoring() {
+    guard powerSourceRunLoopSource == nil else { return }
+    let context = UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
+    guard let source = IOPSNotificationCreateRunLoopSource({ context in
+      guard let context else { return }
+      let helper = Unmanaged<CapdHelper>.fromOpaque(context).takeUnretainedValue()
+      helper.workQueue.async {
+        helper.monitorTick()
+      }
+    }, context)?.takeRetainedValue() else {
+      return
+    }
+
+    powerSourceRunLoopSource = source
+    performOnMain {
+      CFRunLoopAddSource(CFRunLoopGetMain(), source, .defaultMode)
+    }
+  }
+
+  private func stopPowerSourceMonitoring() {
+    guard let source = powerSourceRunLoopSource else { return }
+    performOnMain {
+      CFRunLoopRemoveSource(CFRunLoopGetMain(), source, .defaultMode)
+    }
+    powerSourceRunLoopSource = nil
+  }
+
+  private func performOnMain(_ block: () -> Void) {
+    if Thread.isMainThread {
+      block()
+    } else {
+      DispatchQueue.main.sync(execute: block)
     }
   }
 }

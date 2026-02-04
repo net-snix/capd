@@ -84,9 +84,5 @@ struct CapdMenuView: View {
       }
       helperManager.requestApply(limitPercent: clamped)
     }
-    .onChange(of: batteryMonitor.snapshot) { _ in
-      guard limitPercent < CapdConstants.maxChargeLimitPercent else { return }
-      helperManager.requestApply(limitPercent: limitPercent)
-    }
   }
 }

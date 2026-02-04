@@ -29,6 +29,11 @@ enum ChargeLimiterError: LocalizedError {
 }
 
 final class ChargeLimiter {
+  enum Mode {
+    case bclm
+    case chargingControl
+  }
+
   private let chargeLimitKey = "BCLM"
   private let magSafeKey = "ACLC"
   private struct ChargingControl {
@@ -68,8 +73,9 @@ final class ChargeLimiter {
   private var lastChargingEnabled: Bool?
   private var magSafeSupported: Bool?
   private var lastMagSafeColor: UInt8?
+  private var bclmSupported: Bool?
 
-  func setLimit(_ percent: Int) throws {
+  func setLimit(_ percent: Int) throws -> Mode {
     let clamped = CapdConstants.clampLimit(percent)
     guard clamped >= CapdConstants.minChargeLimitPercent,
           clamped <= CapdConstants.maxChargeLimitPercent else {
@@ -78,28 +84,44 @@ final class ChargeLimiter {
       )
     }
 
+    if bclmSupported == false {
+      try applyChargingLimit(clamped)
+      return .chargingControl
+    }
+
     do {
       try setBCLMLimit(clamped)
+      bclmSupported = true
       if let battery = try? readBatteryState() {
         updateMagSafeState(limit: clamped, battery: battery, chargingEnabled: nil)
       }
-      return
+      return .bclm
     } catch let error as ChargeLimiterError {
       if case .notSupported = error {
+        bclmSupported = false
         try applyChargingLimit(clamped)
-        return
+        return .chargingControl
       }
       throw error
     }
   }
 
   func clearLimit() throws {
+    if bclmSupported == false {
+      try setChargingEnabled(true)
+      lastChargingEnabled = true
+      resetMagSafeState()
+      return
+    }
+
     do {
       try setBCLMLimit(CapdConstants.maxChargeLimitPercent)
+      bclmSupported = true
       resetMagSafeState()
       return
     } catch let error as ChargeLimiterError {
       if case .notSupported = error {
+        bclmSupported = false
         try setChargingEnabled(true)
         lastChargingEnabled = true
         resetMagSafeState()

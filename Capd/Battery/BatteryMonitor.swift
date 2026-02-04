@@ -82,7 +82,10 @@ final class BatteryMonitor: ObservableObject {
       let isPluggedIn = (state == kIOPSACPowerValue)
       let isCharging = desc[kIOPSIsChargingKey as String] as? Bool ?? false
 
-      snapshot = BatterySnapshot(percentage: percent, isPluggedIn: isPluggedIn, isCharging: isCharging)
+      let next = BatterySnapshot(percentage: percent, isPluggedIn: isPluggedIn, isCharging: isCharging)
+      if next != snapshot {
+        snapshot = next
+      }
       return
     }
   }

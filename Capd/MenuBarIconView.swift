@@ -27,7 +27,20 @@ struct MenuBarRingIconView: View {
 }
 
 enum MenuBarRingIcon {
+  private static let imageCache: NSCache<NSString, NSImage> = {
+    let cache = NSCache<NSString, NSImage>()
+    cache.countLimit = 256
+    return cache
+  }()
+
   static func image(currentPercent: Int, limitPercent: Int, colored: Bool) -> NSImage {
+    let clampedPercent = max(0, min(currentPercent, 100))
+    let clampedLimit = max(CapdConstants.minChargeLimitPercent, min(limitPercent, 100))
+    let cacheKey = "\(clampedPercent)|\(clampedLimit)|\(colored ? 1 : 0)" as NSString
+    if let cached = imageCache.object(forKey: cacheKey) {
+      return cached
+    }
+
     let size = NSSize(width: 18, height: 18)
     let lineWidth: CGFloat = 2.2
     let ringColor = colored
@@ -37,7 +50,7 @@ enum MenuBarRingIcon {
       ? NSColor(srgbRed: 0.20, green: 0.86, blue: 0.50, alpha: 0.35)
       : NSColor.white.withAlphaComponent(0.25)
 
-    return NSImage(size: size, flipped: false) { rect in
+    let image = NSImage(size: size, flipped: false) { rect in
       let radius = min(rect.width, rect.height) / 2 - lineWidth / 2
       let center = CGPoint(x: rect.midX, y: rect.midY)
       let startAngle: CGFloat = 90
@@ -57,7 +70,6 @@ enum MenuBarRingIcon {
       trackColor.setStroke()
       track.stroke()
 
-      let clampedPercent = max(0, min(currentPercent, 100))
       if clampedPercent > 0 {
         let endAngle = startAngle - (360 * CGFloat(clampedPercent) / 100)
         let progress = NSBezierPath()
@@ -74,7 +86,6 @@ enum MenuBarRingIcon {
         progress.stroke()
       }
 
-      let clampedLimit = max(CapdConstants.minChargeLimitPercent, min(limitPercent, 100))
       let limitReached = clampedPercent >= clampedLimit
       if clampedLimit < 100 {
         let limitAngle = (startAngle - (360 * CGFloat(clampedLimit) / 100)) * (.pi / 180)
@@ -104,5 +115,7 @@ enum MenuBarRingIcon {
 
       return true
     }
+    imageCache.setObject(image, forKey: cacheKey)
+    return image
   }
 }
