@@ -8,10 +8,10 @@
 	<string>Capd</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleIconName</key>
 	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -26,8 +26,8 @@
 	<true/>
 	<key>SMPrivilegedExecutables</key>
 	<dict>
-		<key>com.example.capd.helper</key>
-		<string>identifier "com.example.capd.helper" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"</string>
+		<key>net.snix.capd.helper</key>
+		<string>identifier "net.snix.capd.helper" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"</string>
 	</dict>
 </dict>
 </plist>

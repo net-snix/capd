@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,20 +18,24 @@
 		3BD57651FD595D41641E2B93 /* CapdHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214774008919CBCD2BCFE661 /* CapdHelperProtocol.swift */; };
 		3D030FDF19753C51495B463E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8B69E194765CFEBC90A43 /* main.swift */; };
 		50DC09E5B92D3149F787A9DD /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C3B0DF8F0E7E8CD955793 /* Debouncer.swift */; };
+		5C9FED7E36F2158B1F3A15F7 /* net.snix.capd.helper.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7DF86924FE31EA71B9AD744 /* net.snix.capd.helper.plist */; };
 		66B3439BAD645CCC2C162711 /* MenuBarIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4552374229530F01BED0121 /* MenuBarIconView.swift */; };
 		7275148E71611F54D529B8AA /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3C399FEAEF6A8F446A2A2 /* BatteryMonitor.swift */; };
 		727C50634250436EA96DEEFD /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4C95FED8DAA21F7A2BB19 /* SettingsWindowController.swift */; };
-		A09C29542F1FFCB500936CB1 /* capd.icon in Resources */ = {isa = PBXBuildFile; fileRef = A09C29532F1FFCB500936CB1 /* capd.icon */; };
+		91767260932FD39E3AE3358A /* XPCCallerValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A88D033B82982AB6F2E978 /* XPCCallerValidator.swift */; };
 		AFB9690A595996195F6EA092 /* CapdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B63EB4842E30EF88E1AE5F /* CapdApp.swift */; };
-		BF8D3F5ABC9BBF4827248967 /* com.example.capd.helper.plist in Resources */ = {isa = PBXBuildFile; fileRef = F97DF7083DA074C6356D9838 /* com.example.capd.helper.plist */; };
+		CCE044BD89B4E418D2ABC34A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 845EC0E66D94962930847DEB /* icon.png */; };
 		CD8F569DF3359CF96C770B01 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */; };
 		D48D13CFCF07DE279E1D9B78 /* CapdHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A400C334AD952B604C489 /* CapdHelper.swift */; };
+		D6FF08B8492CEBDA08419D94 /* icon.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2FDAB53C4431DA23D9DE43 /* icon.json */; };
+		EFF23CC8A7D8CD9C4C2E0BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1CF1356F40DE3B84ADEEBC1 /* Assets.xcassets */; };
 		F338ED1D31D29939F271B6EF /* CapdConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F05868C70EB08FD526617C /* CapdConstants.swift */; };
 		F4BBF86F5C61BEB82178FB2E /* SMCChargeLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B3DA618D81359BF2BD728 /* SMCChargeLimiter.swift */; };
 		F7E470B40B3C65EDB656520D /* HelperXPCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9792BD28130A9BE5E1A784A7 /* HelperXPCDelegate.swift */; };
 		FA32B4951A7A400A98688662 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */; };
 		FD278C1B5F128FDB8FCE4551 /* CapdMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98AC991EB7AF5084E0E891 /* CapdMenuView.swift */; };
 		FF8C96D386670C6CAF85F82C /* CapdConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F05868C70EB08FD526617C /* CapdConstants.swift */; };
+		FFBEEE449B8AB5670B02D872 /* capdicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 324F80271D1C845AD916635B /* capdicon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,27 +52,31 @@
 		092B3DA618D81359BF2BD728 /* SMCChargeLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCChargeLimiter.swift; sourceTree = "<group>"; };
 		214774008919CBCD2BCFE661 /* CapdHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdHelperProtocol.swift; sourceTree = "<group>"; };
 		2B4EB2B3CE1FE3BF12313662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		324F80271D1C845AD916635B /* capdicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capdicon.png; sourceTree = "<group>"; };
 		3AB269456FABAEA23797EC3F /* HelperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClient.swift; sourceTree = "<group>"; };
-		41C178C8DD7C5449E08276E7 /* capd-helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "capd-helper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41C178C8DD7C5449E08276E7 /* capd-helper */ = {isa = PBXFileReference; includeInIndex = 0; path = "capd-helper"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B63EB4842E30EF88E1AE5F /* CapdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdApp.swift; sourceTree = "<group>"; };
 		6681C4F8F7FEC1DBEBFEA46C /* HelperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperManager.swift; sourceTree = "<group>"; };
+		845EC0E66D94962930847DEB /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		8979CE3D0F24FCD2DDA642B5 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		8EE4C95FED8DAA21F7A2BB19 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		9792BD28130A9BE5E1A784A7 /* HelperXPCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperXPCDelegate.swift; sourceTree = "<group>"; };
-		A09C29532F1FFCB500936CB1 /* capd.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = capd.icon; sourceTree = "<group>"; };
 		A58A400C334AD952B604C489 /* CapdHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdHelper.swift; sourceTree = "<group>"; };
 		A63C41C31894099278D10FD0 /* CapdSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdSettingsView.swift; sourceTree = "<group>"; };
 		B2762A84B13D2467C92DBE28 /* Capd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4552374229530F01BED0121 /* MenuBarIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIconView.swift; sourceTree = "<group>"; };
 		C02C3B0DF8F0E7E8CD955793 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		C3F05868C70EB08FD526617C /* CapdConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdConstants.swift; sourceTree = "<group>"; };
+		C7DF86924FE31EA71B9AD744 /* net.snix.capd.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = net.snix.capd.helper.plist; sourceTree = "<group>"; };
 		C853DB8E372E58B1B8E38308 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CB98AC991EB7AF5084E0E891 /* CapdMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapdMenuView.swift; sourceTree = "<group>"; };
+		D6A88D033B82982AB6F2E978 /* XPCCallerValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCCallerValidator.swift; sourceTree = "<group>"; };
 		D72D866AECF800519DF51B66 /* HelperInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperInstaller.swift; sourceTree = "<group>"; };
 		E62FBE6F76666B42EB1CDC33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EC3364C77CBBF7D0787F8BA2 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		EDB3C399FEAEF6A8F446A2A2 /* BatteryMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryMonitor.swift; sourceTree = "<group>"; };
-		F97DF7083DA074C6356D9838 /* com.example.capd.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = com.example.capd.helper.plist; sourceTree = "<group>"; };
+		EF2FDAB53C4431DA23D9DE43 /* icon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icon.json; sourceTree = "<group>"; };
+		F1CF1356F40DE3B84ADEEBC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAE8B69E194765CFEBC90A43 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,11 +123,20 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		1845F75D8A61FF0B93F7B214 /* capd.icon */ = {
+			isa = PBXGroup;
+			children = (
+				EF2FDAB53C4431DA23D9DE43 /* icon.json */,
+				8A86E4DCEC09A722E9217310 /* Assets */,
+			);
+			path = capd.icon;
+			sourceTree = "<group>";
+		};
 		1CF1D97C40A8873F82AFA11B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F97DF7083DA074C6356D9838 /* com.example.capd.helper.plist */,
 				2B4EB2B3CE1FE3BF12313662 /* Info.plist */,
+				C7DF86924FE31EA71B9AD744 /* net.snix.capd.helper.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -141,16 +158,27 @@
 				9792BD28130A9BE5E1A784A7 /* HelperXPCDelegate.swift */,
 				FAE8B69E194765CFEBC90A43 /* main.swift */,
 				092B3DA618D81359BF2BD728 /* SMCChargeLimiter.swift */,
+				D6A88D033B82982AB6F2E978 /* XPCCallerValidator.swift */,
 				1CF1D97C40A8873F82AFA11B /* Resources */,
 			);
 			path = "capd-helper";
 			sourceTree = "<group>";
 		};
+		8A86E4DCEC09A722E9217310 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				324F80271D1C845AD916635B /* capdicon.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		8FD78135CC47D45A74653C71 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F1CF1356F40DE3B84ADEEBC1 /* Assets.xcassets */,
+				845EC0E66D94962930847DEB /* icon.png */,
 				E62FBE6F76666B42EB1CDC33 /* Info.plist */,
-				A09C29532F1FFCB500936CB1 /* capd.icon */,
+				1845F75D8A61FF0B93F7B214 /* capd.icon */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -259,9 +287,11 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					33C0D98708B5F710C1456446 = {
+						DevelopmentTeam = TBMZBFNUT5;
 						ProvisioningStyle = Automatic;
 					};
 					AD5717798CEE1CB18404B059 = {
+						DevelopmentTeam = TBMZBFNUT5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -276,6 +306,7 @@
 			);
 			mainGroup = 02CFF6DDCAF8D98CBE7CF53B;
 			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -290,7 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF8D3F5ABC9BBF4827248967 /* com.example.capd.helper.plist in Resources */,
+				5C9FED7E36F2158B1F3A15F7 /* net.snix.capd.helper.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +329,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09C29542F1FFCB500936CB1 /* capd.icon in Resources */,
+				EFF23CC8A7D8CD9C4C2E0BE1 /* Assets.xcassets in Resources */,
+				FFBEEE449B8AB5670B02D872 /* capdicon.png in Resources */,
+				D6FF08B8492CEBDA08419D94 /* icon.json in Resources */,
+				CCE044BD89B4E418D2ABC34A /* icon.png in Resources */,
 				120F69612E765C60E1A91CD0 /* capd-helper in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,17 +348,17 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/capd-helper/Resources/com.example.capd.helper.plist",
+				"$(SRCROOT)/capd-helper/Resources/net.snix.capd.helper.plist",
 			);
 			name = "Prepare embedded launchd plist";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/com.example.capd.helper.launchd.plist",
+				"$(DERIVED_FILE_DIR)/net.snix.capd.helper.launchd.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -euo pipefail\n\nIN_PLIST=\"${SRCROOT}/capd-helper/Resources/com.example.capd.helper.plist\"\nOUT_PLIST=\"${DERIVED_FILE_DIR}/com.example.capd.helper.launchd.plist\"\n\n/usr/bin/plutil -convert binary1 -o \"${OUT_PLIST}\" \"${IN_PLIST}\"\n";
+			shellScript = "set -euo pipefail\n\nIN_PLIST=\"${SRCROOT}/capd-helper/Resources/net.snix.capd.helper.plist\"\nOUT_PLIST=\"${DERIVED_FILE_DIR}/net.snix.capd.helper.launchd.plist\"\n\n/usr/bin/plutil -convert binary1 -o \"${OUT_PLIST}\" \"${IN_PLIST}\"\n";
 		};
 		54CDC7610E53C5A2E34D2CDC /* Embed Privileged Helper + Launchd Plist */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -339,12 +373,12 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchServices/com.example.capd.helper",
-				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchDaemons/com.example.capd.helper.plist",
+				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchServices/net.snix.capd.helper",
+				"$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchDaemons/net.snix.capd.helper.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -euo pipefail\n\nHELPER_LABEL=\"com.example.capd.helper\"\nAPP_BUNDLE=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\nHELPER_SRC=\"${BUILT_PRODUCTS_DIR}/capd-helper\"\nHELPER_DST=\"${APP_BUNDLE}/Contents/Library/LaunchServices/${HELPER_LABEL}\"\n\nLAUNCHD_SRC=\"${SRCROOT}/capd-helper/Resources/${HELPER_LABEL}.plist\"\nLAUNCHD_DST=\"${APP_BUNDLE}/Contents/Library/LaunchDaemons/${HELPER_LABEL}.plist\"\n\nmkdir -p \"$(dirname \"${HELPER_DST}\")\" \"$(dirname \"${LAUNCHD_DST}\")\"\ncp \"${HELPER_SRC}\" \"${HELPER_DST}\"\ncp \"${LAUNCHD_SRC}\" \"${LAUNCHD_DST}\"\nchmod 755 \"${HELPER_DST}\"\n";
+			shellScript = "set -euo pipefail\n\nHELPER_LABEL=\"net.snix.capd.helper\"\nAPP_BUNDLE=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\nHELPER_SRC=\"${BUILT_PRODUCTS_DIR}/capd-helper\"\nHELPER_DST=\"${APP_BUNDLE}/Contents/Library/LaunchServices/${HELPER_LABEL}\"\n\nLAUNCHD_SRC=\"${SRCROOT}/capd-helper/Resources/${HELPER_LABEL}.plist\"\nLAUNCHD_DST=\"${APP_BUNDLE}/Contents/Library/LaunchDaemons/${HELPER_LABEL}.plist\"\n\nmkdir -p \"$(dirname \"${HELPER_DST}\")\" \"$(dirname \"${LAUNCHD_DST}\")\"\ncp \"${HELPER_SRC}\" \"${HELPER_DST}\"\ncp \"${LAUNCHD_SRC}\" \"${LAUNCHD_DST}\"\nchmod 755 \"${HELPER_DST}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -377,6 +411,7 @@
 				189614089B017E0917F0F589 /* CapdHelperProtocol.swift in Sources */,
 				F7E470B40B3C65EDB656520D /* HelperXPCDelegate.swift in Sources */,
 				F4BBF86F5C61BEB82178FB2E /* SMCChargeLimiter.swift in Sources */,
+				91767260932FD39E3AE3358A /* XPCCallerValidator.swift in Sources */,
 				3D030FDF19753C51495B463E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,7 +432,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = "capd-helper/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -411,9 +445,9 @@
 					"-Xlinker",
 					__launchd_plist,
 					"-Xlinker",
-					"$(DERIVED_FILE_DIR)/com.example.capd.helper.launchd.plist",
+					"$(DERIVED_FILE_DIR)/net.snix.capd.helper.launchd.plist",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.capd.helper;
+				PRODUCT_BUNDLE_IDENTIFIER = net.snix.capd.helper;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -421,17 +455,14 @@
 		2F217DA97DEF2D14FF2CC947 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = capd;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = Capd/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.capd;
+				PRODUCT_BUNDLE_IDENTIFIER = net.snix.capd;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -439,17 +470,14 @@
 		82351599CEA7E0408CEFB5F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = capd;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = Capd/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.capd;
+				PRODUCT_BUNDLE_IDENTIFIER = net.snix.capd;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -492,7 +520,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -510,7 +538,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -527,7 +555,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				INFOPLIST_FILE = "capd-helper/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -541,9 +568,9 @@
 					"-Xlinker",
 					__launchd_plist,
 					"-Xlinker",
-					"$(DERIVED_FILE_DIR)/com.example.capd.helper.launchd.plist",
+					"$(DERIVED_FILE_DIR)/net.snix.capd.helper.launchd.plist",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.capd.helper;
+				PRODUCT_BUNDLE_IDENTIFIER = net.snix.capd.helper;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -586,7 +613,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TBMZBFNUT5;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -598,7 +625,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

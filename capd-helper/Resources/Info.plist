@@ -20,7 +20,7 @@
 	<string>1</string>
 	<key>SMAuthorizedClients</key>
 	<array>
-		<string>identifier "com.example.capd" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"</string>
+		<string>identifier "net.snix.capd" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"</string>
 	</array>
 </dict>
 </plist>

@@ -1,6 +1,7 @@
 import Foundation
 
 final class HelperClient {
+  private let stateQueue = DispatchQueue(label: "\(CapdConstants.appBundleID).helper-client.state")
   private var connection: NSXPCConnection?
 
   func ping(completion: @escaping (Result<String, Error>) -> Void) {
@@ -33,15 +34,25 @@ final class HelperClient {
   }
 
   func invalidate() {
-    connection?.invalidate()
-    connection = nil
+    let existing = stateQueue.sync { () -> NSXPCConnection? in
+      defer { connection = nil }
+      return connection
+    }
+    existing?.invalidate()
   }
 
   private func remoteProxy(errorHandler: @escaping (Error) -> Void) -> CapdHelperProtocol? {
-    let conn = connection ?? makeConnection()
-    connection = conn
+    let conn = stateQueue.sync { () -> NSXPCConnection in
+      if let connection {
+        return connection
+      }
+      let newConnection = makeConnection()
+      connection = newConnection
+      return newConnection
+    }
+
     return conn.remoteObjectProxyWithErrorHandler { error in
-      self.invalidate()
+      self.clearConnectionReference()
       errorHandler(error)
     } as? CapdHelperProtocol
   }
@@ -50,12 +61,18 @@ final class HelperClient {
     let conn = NSXPCConnection(machServiceName: CapdConstants.machServiceName, options: .privileged)
     conn.remoteObjectInterface = NSXPCInterface(with: CapdHelperProtocol.self)
     conn.interruptionHandler = { [weak self] in
-      self?.connection = nil
+      self?.clearConnectionReference()
     }
     conn.invalidationHandler = { [weak self] in
-      self?.connection = nil
+      self?.clearConnectionReference()
     }
     conn.resume()
     return conn
+  }
+
+  private func clearConnectionReference() {
+    stateQueue.sync {
+      connection = nil
+    }
   }
 }

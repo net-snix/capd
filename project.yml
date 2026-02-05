@@ -1,15 +1,15 @@
 name: Capd
 
 options:
-  bundleIdPrefix: com.example
+  bundleIdPrefix: net.snix
   deploymentTarget:
     macOS: "13.0"
 
 settings:
   base:
-    MARKETING_VERSION: "0.1"
+    MARKETING_VERSION: "1.0"
     CURRENT_PROJECT_VERSION: "1"
-    DEVELOPMENT_TEAM: ""
+    DEVELOPMENT_TEAM: "TBMZBFNUT5"
     CODE_SIGN_STYLE: Automatic
     CODE_SIGN_IDENTITY: "Apple Development"
 
@@ -24,12 +24,13 @@ targets:
       path: Capd/Resources/Info.plist
       properties:
         CFBundleDisplayName: Capd
+        CFBundleIconName: AppIcon
         LSUIElement: true
         SMPrivilegedExecutables:
-          com.example.capd.helper: 'identifier "com.example.capd.helper" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"'
+          net.snix.capd.helper: 'identifier "net.snix.capd.helper" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"'
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.capd
+        PRODUCT_BUNDLE_IDENTIFIER: net.snix.capd
         INFOPLIST_FILE: Capd/Resources/Info.plist
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     dependencies:
@@ -42,7 +43,7 @@ targets:
         script: |
           set -euo pipefail
 
-          HELPER_LABEL="com.example.capd.helper"
+          HELPER_LABEL="net.snix.capd.helper"
           APP_BUNDLE="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
 
           HELPER_SRC="${BUILT_PRODUCTS_DIR}/capd-helper"
@@ -57,8 +58,8 @@ targets:
           chmod 755 "${HELPER_DST}"
         shell: /bin/bash
         outputFiles:
-          - $(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchServices/com.example.capd.helper
-          - $(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchDaemons/com.example.capd.helper.plist
+          - $(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchServices/net.snix.capd.helper
+          - $(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/Contents/Library/LaunchDaemons/net.snix.capd.helper.plist
 
   capd-helper:
     type: tool
@@ -73,24 +74,24 @@ targets:
       properties:
         CFBundleDisplayName: capd-helper
         SMAuthorizedClients:
-          - 'identifier "com.example.capd" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"'
+          - 'identifier "net.snix.capd" and anchor apple generic and certificate leaf[subject.OU] = "$(DEVELOPMENT_TEAM)"'
     preBuildScripts:
       - name: Prepare embedded launchd plist
         script: |
           set -euo pipefail
 
-          IN_PLIST="${SRCROOT}/capd-helper/Resources/com.example.capd.helper.plist"
-          OUT_PLIST="${DERIVED_FILE_DIR}/com.example.capd.helper.launchd.plist"
+          IN_PLIST="${SRCROOT}/capd-helper/Resources/net.snix.capd.helper.plist"
+          OUT_PLIST="${DERIVED_FILE_DIR}/net.snix.capd.helper.launchd.plist"
 
           /usr/bin/plutil -convert binary1 -o "${OUT_PLIST}" "${IN_PLIST}"
         shell: /bin/bash
         inputFiles:
-          - $(SRCROOT)/capd-helper/Resources/com.example.capd.helper.plist
+          - $(SRCROOT)/capd-helper/Resources/net.snix.capd.helper.plist
         outputFiles:
-          - $(DERIVED_FILE_DIR)/com.example.capd.helper.launchd.plist
+          - $(DERIVED_FILE_DIR)/net.snix.capd.helper.launchd.plist
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.capd.helper
+        PRODUCT_BUNDLE_IDENTIFIER: net.snix.capd.helper
         INFOPLIST_FILE: capd-helper/Resources/Info.plist
         CREATE_INFOPLIST_SECTION_IN_BINARY: YES
         OTHER_LDFLAGS:
@@ -101,4 +102,4 @@ targets:
           - -Xlinker
           - __launchd_plist
           - -Xlinker
-          - $(DERIVED_FILE_DIR)/com.example.capd.helper.launchd.plist
+          - $(DERIVED_FILE_DIR)/net.snix.capd.helper.launchd.plist

@@ -10,7 +10,6 @@ struct CapdApp: App {
 
   init() {
     logger.info("Capd launched")
-    print("Capd launched")
   }
 
   var body: some Scene {

@@ -1,9 +1,64 @@
 import Foundation
 
+private enum HelperStatus: Equatable {
+  case notInstalled
+  case installPrompt
+  case reachable
+  case applying(Int)
+  case outdated(received: String)
+  case error(String)
+
+  var text: String {
+    switch self {
+    case .notInstalled:
+      return "Helper not installed"
+    case .installPrompt:
+      return "Helper not installed (click Install Helper)"
+    case .reachable:
+      return "Helper reachable"
+    case .applying(let limit):
+      return "Applying \(limit)%…"
+    case .outdated(let received):
+      return "Helper update required (protocol mismatch: \(received))"
+    case .error(let message):
+      return message
+    }
+  }
+
+  var isReachable: Bool {
+    switch self {
+    case .reachable, .applying:
+      return true
+    default:
+      return false
+    }
+  }
+
+  var menuText: String? {
+    guard !isReachable else { return nil }
+    switch self {
+    case .outdated:
+      return "Helper update required"
+    case .error(let message):
+      return message
+    default:
+      return "Helper not installed"
+    }
+  }
+
+  var shouldShowStatusMessage: Bool {
+    self != .reachable
+  }
+}
+
 @MainActor
 final class HelperManager: ObservableObject {
-  @Published var statusText: String = "Helper not installed"
-  @Published private(set) var isHelperReachable: Bool = false
+  @Published private var status: HelperStatus = .notInstalled
+
+  var statusText: String { status.text }
+  var isHelperReachable: Bool { status.isReachable }
+  var menuStatusText: String? { status.menuText }
+  var shouldShowStatusMessage: Bool { status.shouldShowStatusMessage }
 
   private let installer = HelperInstaller()
   private let client = HelperClient()
@@ -25,8 +80,7 @@ final class HelperManager: ObservableObject {
         }
       }
     } catch {
-      isHelperReachable = false
-      statusText = error.localizedDescription
+      status = .error(error.localizedDescription)
     }
   }
 
@@ -35,7 +89,10 @@ final class HelperManager: ObservableObject {
     lastRequestedLimitPercent = clamped
 
     guard isHelperReachable else {
-      statusText = "Helper not installed (click Install Helper)"
+      if case .outdated = status {
+        return
+      }
+      status = .installPrompt
       return
     }
 
@@ -48,17 +105,16 @@ final class HelperManager: ObservableObject {
     client.ping { result in
       Task { @MainActor in
         switch result {
-        case .success:
-          self.isHelperReachable = true
-          if self.statusText == "Helper not installed" || self.statusText.hasPrefix("Helper not installed") {
-            self.statusText = "Helper reachable"
+        case .success(let value):
+          guard value == CapdConstants.helperPingResponse else {
+            self.status = .outdated(received: value)
+            completion?(false)
+            return
           }
+          self.status = .reachable
           completion?(true)
         case .failure:
-          self.isHelperReachable = false
-          if self.statusText == "Helper reachable" {
-            self.statusText = "Helper not installed"
-          }
+          self.status = .notInstalled
           completion?(false)
         }
       }
@@ -66,16 +122,16 @@ final class HelperManager: ObservableObject {
   }
 
   private func apply(limitPercent: Int) {
-    statusText = "Applying \(limitPercent)%…"
+    status = .applying(limitPercent)
 
     if limitPercent >= 100 {
       client.clearChargeLimit { result in
         Task { @MainActor in
           switch result {
           case .success:
-            self.statusText = "Helper reachable"
+            self.status = .reachable
           case .failure(let error):
-            self.statusText = error.localizedDescription
+            self.status = .error(error.localizedDescription)
           }
         }
       }
@@ -84,9 +140,9 @@ final class HelperManager: ObservableObject {
         Task { @MainActor in
           switch result {
           case .success:
-            self.statusText = "Helper reachable"
+            self.status = .reachable
           case .failure(let error):
-            self.statusText = error.localizedDescription
+            self.status = .error(error.localizedDescription)
           }
         }
       }

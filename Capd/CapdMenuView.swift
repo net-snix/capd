@@ -8,10 +8,17 @@ struct CapdMenuView: View {
   @AppStorage(CapdConstants.defaultsChargeLimitKey)
   private var limitPercent: Int = CapdConstants.defaultChargeLimitPercent
 
+  private var limitPercentBinding: Binding<Int> {
+    Binding(
+      get: { limitPercent },
+      set: { updateLimitPercent($0) }
+    )
+  }
+
   private var limitBindingForSlider: Binding<Double> {
     Binding(
       get: { Double(limitPercent) },
-      set: { limitPercent = Int($0.rounded()) }
+      set: { updateLimitPercent(Int($0.rounded())) }
     )
   }
 
@@ -42,7 +49,7 @@ struct CapdMenuView: View {
       HStack(spacing: 8) {
         Text("Limit")
         Spacer()
-        TextField("", value: $limitPercent, format: .number)
+        TextField("", value: limitPercentBinding, format: .number)
           .textFieldStyle(.roundedBorder)
           .frame(width: 64)
         Text("%").foregroundStyle(.secondary)
@@ -63,8 +70,8 @@ struct CapdMenuView: View {
             .font(.caption)
             .foregroundStyle(.secondary)
         }
-        if !helperManager.isHelperReachable {
-          Text("Helper not installed")
+        if let helperStatusText = helperManager.menuStatusText {
+          Text(helperStatusText)
             .font(.caption)
             .foregroundStyle(.secondary)
         }
@@ -73,16 +80,19 @@ struct CapdMenuView: View {
     .padding(12)
     .frame(width: 280)
     .onAppear {
-      limitPercent = CapdConstants.clampLimit(limitPercent)
-      helperManager.requestApply(limitPercent: limitPercent)
-    }
-    .onChange(of: limitPercent) { newValue in
-      let clamped = CapdConstants.clampLimit(newValue)
-      if clamped != newValue {
+      let clamped = CapdConstants.clampLimit(limitPercent)
+      if clamped != limitPercent {
         limitPercent = clamped
-        return
       }
       helperManager.requestApply(limitPercent: clamped)
     }
+  }
+
+  private func updateLimitPercent(_ newValue: Int) {
+    let clamped = CapdConstants.clampLimit(newValue)
+    if clamped != limitPercent {
+      limitPercent = clamped
+    }
+    helperManager.requestApply(limitPercent: clamped)
   }
 }

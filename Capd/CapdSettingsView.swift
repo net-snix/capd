@@ -49,7 +49,7 @@ struct CapdSettingsView: View {
           .foregroundStyle(.secondary)
       }
 
-      if helperManager.statusText != "Helper reachable" {
+      if helperManager.shouldShowStatusMessage {
         Text(helperManager.statusText)
           .font(.caption)
           .foregroundStyle(.secondary)
