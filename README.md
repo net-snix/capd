@@ -26,11 +26,6 @@ Internal developer notes are intentionally omitted from the public repo.
 ## Build (unsigned)
 - `cd capd && ./Scripts/build-unsigned.sh`
 
-## Configure bundle IDs (if you want)
-Default IDs are editable in `capd/project.yml`:
-- App: `net.snix.capd`
-- Helper label/service: `net.snix.capd.helper`
-
 ## SMJobBless notes
 SMJobBless requires proper signing (same team) to actually install the helper. Expect the “Install Helper” button to fail until:
 - You set a real signing team in Xcode, and
